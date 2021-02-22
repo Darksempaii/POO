@@ -1,21 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Punto;
 
-/**
- *
- * @author cesar
- */
 public class PruebaPunto {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Punto p1 = new Punto(0, 0);
+        Punto p2 = new Punto(5, 3);
+        Punto p3 = new Punto((p1.getX() + p2.getX()) / 2, (p1.getY() + p2.getY()) / 2);
+        System.out.println(p1);
+        System.out.println(p2);
+        System.out.println(p3);
     }
-    
+
 }
