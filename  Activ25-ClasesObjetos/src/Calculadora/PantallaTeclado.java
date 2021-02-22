@@ -1,41 +1,61 @@
-
 package Calculadora;
+
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
 public class Pantalla {
-    private int a = 0;
-    
-    public Pantalla(){
-    
+
+    public Pantalla() {}
+
+    public String mostrarMensaje() {
+        return "hola ";
     }
 
-    protected String mostrarMensaje(){
-        return "hola " + a;
-    }
-    
-    public String mostrarLineaMensaje(){
-        
+    public String mostrarLineaMensaje() {
+
         return "";
     }
-    public String mostrarResultado(){
-        
+
+    public String mostrarResultado(float R) {
+        DecimalFormat df = new DecimalFormat("###.##");
+        System.out.println(df.format(R));
         return "";
     }
-    public String mostrarMenu(){
-        
-        return "regrese menu";
+
+    public String mostrarMenu() {
+        System.out.println("Menu de opciones");
+        System.out.println("\t1.Suma\n\t2.Resta\n\t3.Multiplicar\n\t4.dividir\n\t5.Salir");
+        return "introduce tu opcion: ";
     }
 }
 
-public class Teclado {
+public class teclado {
 
-    private int entrada;
-    public Teclado(){
-        Scanner sc = new Scanner(System.in);
-        this.entrada = sc.nextInt();
+    private static float entrada;
+
+    public teclado() {
+        teclado.entrada = 0;
     }
-    
-    public int obtenerEntrada(){
+
+    private static void leerTeclado() {
+        teclado.entrada = 0;
+            Scanner sc = new Scanner(System.in);
+            try {
+                teclado.entrada = sc.nextFloat();
+            } catch (Exception e) {
+                System.out.println("ingresastes un dato no valido. intentalo de nuevo");
+                System.out.println(e);
+            }
+    }
+
+    public Float obtenerFloat() {
+        teclado.leerTeclado();
         return entrada;
+    }
+
+    public int obtenerInt() {
+        teclado.leerTeclado();
+        int a = (int) teclado.entrada;
+        return a;
     }
 }
