@@ -1,6 +1,8 @@
 
 package Punto;
 
+import java.text.DecimalFormat;
+
 
 public class Punto {
     private double x, y;
@@ -15,9 +17,13 @@ public class Punto {
         return "{" + x + " , " + y + '}';
     }
     
-    public double distancia(){
-        
-        return 0;
+public double distancia(Punto p) throws Exception{
+        if (p == null)
+            throw new Exception("Ups! Debe inicializar el objeto punto");
+        double diferenciaX = x - p.getX();
+        double diferenciaY = y - p.getY();
+        double respuesta = Math.sqrt(Math.pow(diferenciaX, 2) + Math.pow(diferenciaY, 2));
+        return respuesta;
     }
     
     //Getter`s
