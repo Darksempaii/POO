@@ -13,7 +13,7 @@ public class PruebaPunto {
         System.out.println(p2);
         System.out.println(p3);
         try {
-            System.out.println("Distancia p1 a p2: " + df.format(p1.distancia(p2)));
+            System.out.println("Distancia p1 a p2: " + df.format(p1.distancia(p3)));
         } catch (Exception e) {
             e.printStackTrace();
         }

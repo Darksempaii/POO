@@ -1,9 +1,6 @@
 
 package Punto;
 
-import java.text.DecimalFormat;
-
-
 public class Punto {
     private double x, y;
 
