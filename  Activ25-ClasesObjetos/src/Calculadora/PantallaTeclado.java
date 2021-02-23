@@ -7,13 +7,12 @@ public class Pantalla {
 
     public Pantalla() {}
 
-    public String mostrarMensaje() {
-        return "hola ";
+    public String mostrarMensaje(String a) {
+        return a;
     }
 
-    public String mostrarLineaMensaje() {
-
-        return "";
+    public String mostrarLineaMensaje(String a) {
+        return "\n"+a;
     }
 
     public String mostrarResultado(float R) {
@@ -37,7 +36,7 @@ public class teclado {
         teclado.entrada = 0;
     }
 
-    private static void leerTeclado() {
+    private static void leerTeclado() throws InterruptedException {
         teclado.entrada = 0;
             Scanner sc = new Scanner(System.in);
             try {
@@ -45,6 +44,7 @@ public class teclado {
             } catch (Exception e) {
                 System.out.println("ingresastes un dato no valido. intentalo de nuevo");
                 System.out.println(e);
+                Thread.sleep(1500);
             }
     }
 
