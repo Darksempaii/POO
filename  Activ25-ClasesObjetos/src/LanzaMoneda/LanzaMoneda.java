@@ -12,7 +12,7 @@ public class LanzaMoneda {
     }
 
     //metodo lanzamiento
-    private void Lanzamiento() {
+    private void lanzamiento() {
         for (int i = 0; i < numDeLanzamientos; i++) {
             int random = (int) (Math.random() * 100);
             if (random <= 50) {
@@ -25,7 +25,7 @@ public class LanzaMoneda {
 
     @Override
     public String toString() {
-        Lanzamiento();
+        lanzamiento();
         return "El numero de lanzamientos es: " + numDeLanzamientos + "\nNumero de Caras: " + numCaras + "\nnumero de cruces: " + numCruces;
     }
 }
