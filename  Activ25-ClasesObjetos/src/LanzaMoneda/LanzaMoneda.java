@@ -1,14 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package LanzaMoneda;
 
-/**
- *
- * @author cesar
- */
 public class LanzaMoneda {
-    
+    //variables de la clase
+    private int numCaras = 0;
+    private int numCruces = 0;
+    private int numDeLanzamientos;
+
+    //metodo constructor
+    public LanzaMoneda(int lanzamientos) {
+        this.numDeLanzamientos = lanzamientos;
+    }
+
+    //metodo lanzamiento
+    private void Lanzamiento() {
+        for (int i = 0; i < numDeLanzamientos; i++) {
+            int random = (int) (Math.random() * 100);
+            if (random <= 50) {
+                numCaras++;
+            } else if (random >= 51) {
+                numCruces++;
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+        Lanzamiento();
+        return "El numero de lanzamientos es: " + numDeLanzamientos + "\nNumero de Caras: " + numCaras + "\nnumero de cruces: " + numCruces;
+    }
 }
