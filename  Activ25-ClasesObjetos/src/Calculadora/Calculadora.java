@@ -3,7 +3,7 @@ package Calculadora;
 public class Calculadora {
 
     private static Pantalla P = new Pantalla();
-    private static teclado t1 = new teclado();
+    private static Teclado t1 = new Teclado();
 
     public Calculadora() {
     }
