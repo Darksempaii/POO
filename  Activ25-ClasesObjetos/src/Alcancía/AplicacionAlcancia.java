@@ -1,21 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Alcancía;
 
-/**
- *
- * @author cesar
- */
 public class AplicacionAlcancia {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws InterruptedException {
+        //declaracion de Objetos
+        Alcancía alcanciaDeJose = new Alcancía("Jose");
+        Alcancía alcanciaDeMaria = new Alcancía("Maria");
+        //Ingreso de ahorros de jose
+        alcanciaDeJose.ahorrar(200);
+        alcanciaDeJose.ahorrar(200);
+        alcanciaDeJose.ahorrar(50);
+        //Ingreso de ahorros de maria
+        alcanciaDeMaria.ahorrar(200);
+        alcanciaDeMaria.ahorrar(100);
+        alcanciaDeMaria.ahorrar(20);
+        alcanciaDeMaria.ahorrar(20);
+        alcanciaDeMaria.ahorrar(20);
+        alcanciaDeMaria.ahorrar(20);
+        //muestra de ahorros
+        System.out.println(alcanciaDeJose);
+        Thread.sleep(500);
+        System.out.println(alcanciaDeMaria);
+        Thread.sleep(500);
+        //Vaciado de alcancias
+        System.out.println(alcanciaDeJose.romperAlcancia());
+        Thread.sleep(500);
+        System.out.println(alcanciaDeMaria.romperAlcancia());
+        Thread.sleep(500);
+
+        //Fin del programa
+        System.exit(0);
     }
-    
+
 }
