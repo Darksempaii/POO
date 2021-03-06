@@ -1,21 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Activ24_ClasesMathString;
 
-/**
- *
- * @author cesar
- */
+import java.util.Random;
+
 public class ClaseMath {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Random rGenerador = new Random();
+        int jugador1;
+        int jugador2;
+        jugador1 = rGenerador.nextInt(6) + 1;
+        jugador2 = rGenerador.nextInt(6) + 1;
+        System.out.println("Jugador 1: "+jugador1+"\njugador 2: "+jugador2);
+        System.out.println("El numero mayor es: "+Math.max(jugador1, jugador2));
     }
-    
+
 }
