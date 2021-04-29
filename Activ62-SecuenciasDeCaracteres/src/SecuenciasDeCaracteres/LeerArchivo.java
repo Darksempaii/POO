@@ -1,11 +1,11 @@
-package IOStream;
+package SecuenciasDeCaracteres;
 
 import java.io.*;
 
-public class EscribirArchivo {
 
-    public void leerstatic() {
-        
+public class LeerArchivo {
+    
+    public void leer() {
         try {
             FileReader entrada = new FileReader("C:/Users/cesar/AppData/ejemplo.txt");
             int c = entrada.read();
@@ -14,6 +14,7 @@ public class EscribirArchivo {
                 char letra =(char)c;
                 System.out.print(letra);
             }
+            entrada.close();
         } catch (IOException e) {
             System.out.println(e);
             System.out.println("El archivo no esta disponible");
