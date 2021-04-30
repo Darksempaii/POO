@@ -10,9 +10,9 @@ public class GestiionArchivoCaracteres {
 
     }
 
-    public void escribirCaracteres() {
+    public void escribirCaracteres(String archivo) {
         try {
-            FileWriter salida = new FileWriter("DatosPersonales");
+            FileWriter salida = new FileWriter(archivo);
             salida.write("Cesar Enoc Rodriguez Villanueva \n15 de Mayo del 2001 \nCiudad Victoria, Tamaulipas");
             salida.close();
         } catch (IOException ex) {
@@ -21,9 +21,9 @@ public class GestiionArchivoCaracteres {
         }
     }
 
-    public void leerCaracteres() {
+    public void leerCaracteres(String archivo) {
         try {
-            BufferedReader entrada = new BufferedReader(new FileReader("DatosPersonales"));
+            BufferedReader entrada = new BufferedReader(new FileReader(archivo));
             String cadena;
             while ((cadena = entrada.readLine()) != null) {
                 System.out.println(""+ cadena);
