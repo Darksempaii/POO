@@ -1,10 +1,8 @@
 package SecuenciasDeCaracteres;
 
-import java.io.IOException;
-
 public class AplicacionGestionArchivosCaracteres {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         GestiionArchivoCaracteres archivo = new GestiionArchivoCaracteres();
         archivo.escribirCaracteres("DatosPersonales.txt");
         archivo.leerCaracteres("DatosPersonales.txt");
