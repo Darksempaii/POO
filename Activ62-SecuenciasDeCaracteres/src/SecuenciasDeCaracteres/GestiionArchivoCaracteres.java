@@ -27,7 +27,7 @@ public class GestiionArchivoCaracteres {
             BufferedReader entrada = new BufferedReader(new FileReader(archivo));
             String cadena;
             while ((cadena = entrada.readLine()) != null) {
-                leer = ("" + cadena);
+                leer = (leer + "\n" + cadena);
             }
             entrada.close();
         } catch (IOException e) {
