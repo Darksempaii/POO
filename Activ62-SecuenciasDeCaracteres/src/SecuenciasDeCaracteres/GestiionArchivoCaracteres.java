@@ -10,10 +10,10 @@ public class GestiionArchivoCaracteres {
 
     }
 
-    public void escribirCaracteres(String archivo) {
+    public void escribirCaracteres(String archivo, String Datos) {
         try {
             FileWriter salida = new FileWriter(archivo);
-            salida.write("Cesar Enoc Rodriguez Villanueva \n15 de Mayo del 2001 \nCiudad Victoria, Tamaulipas");
+            salida.write(Datos);
             salida.close();
         } catch (IOException ex) {
             Logger.getLogger(GestiionArchivoCaracteres.class.getName()).log(Level.SEVERE, null, ex);
@@ -24,10 +24,10 @@ public class GestiionArchivoCaracteres {
     public String leerCaracteres(String archivo) {
         String leer = "";
         try {
-            BufferedReader entrada = new BufferedReader(new FileReader(archivo));
-            String cadena;
-            while ((cadena = entrada.readLine()) != null) {
-                leer = (leer + "\n" + cadena);
+            FileReader entrada = new FileReader(archivo);
+            int cadena;
+            while ((cadena = entrada.read()) != -1) {
+                leer = leer + (char)cadena;
             }
             entrada.close();
         } catch (IOException e) {
