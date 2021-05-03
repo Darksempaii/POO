@@ -21,18 +21,19 @@ public class GestiionArchivoCaracteres {
         }
     }
 
-    public void leerCaracteres(String archivo) {
+    public String leerCaracteres(String archivo) {
+        String leer = "";
         try {
             BufferedReader entrada = new BufferedReader(new FileReader(archivo));
             String cadena;
             while ((cadena = entrada.readLine()) != null) {
-                System.out.println(""+ cadena);
+                leer = ("" + cadena);
             }
             entrada.close();
         } catch (IOException e) {
             Logger.getLogger(GestiionArchivoCaracteres.class.getName()).log(Level.SEVERE, null, e);
             System.out.println("El archivo no esta disponible");
         }
-
+        return leer;
     }
 }
