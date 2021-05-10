@@ -7,7 +7,7 @@ public class AplicacionGestionArchivosConBuffers {
 
     public static void main(String[] args) {
         GestionArchivosConBuffers Datos = new GestionArchivosConBuffers();
-        Datos.escribirCaracteres("DatosPersonales.txt", "NuevosDatosPersonales.txt");
+        Datos.LeerEscribirBuffer("DatosPersonales.txt", "NuevosDatosPersonales.txt");
  
     }
     

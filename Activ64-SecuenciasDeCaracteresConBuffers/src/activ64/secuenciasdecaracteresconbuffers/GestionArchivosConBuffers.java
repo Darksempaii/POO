@@ -7,7 +7,7 @@ public class GestionArchivosConBuffers {
     public GestionArchivosConBuffers() {
     }
 
-    public void escribirCaracteres(String archivo1, String archivo2) {
+    public void LeerEscribirBuffer(String archivo1, String archivo2) {
         String leer = "";
         try {
             BufferedWriter salida = new BufferedWriter(new FileWriter(archivo2));
@@ -21,7 +21,7 @@ public class GestionArchivosConBuffers {
             entrada.close();
             salida.close();
         } catch (IOException e) {
-            System.out.println("el archivo no se pudo escribir: " + e);
+            System.out.println("Error E/S: " + e);
         }
     }
 }
