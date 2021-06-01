@@ -57,7 +57,7 @@ public class Security_Module {
         LibrosDAO modelo = new LibrosDAO();
         Controlador controlador = new Controlador(vista, modelo);
     }
-    
+//Codigo huerfano///////////////////////////////////////////////////////////////////////////////////////////////
     // Clave de encriptación / desencriptación
     public SecretKeySpec CrearCalve(String llave) {
         try {

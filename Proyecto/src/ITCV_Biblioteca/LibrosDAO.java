@@ -52,7 +52,7 @@ public class LibrosDAO {
             entrada = new ObjectInputStream(new FileInputStream("Libros.obj"));
 
         } catch (IOException e) {
-            System.err.println("Error al abrir el archivo de entrada de personas....");
+            System.err.println("Error al abrir el archivo de entrada de Libros....");
         }
     }
 
