@@ -2,8 +2,6 @@ package ITCV_Biblioteca;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class LibrosDAO {
 
@@ -20,7 +18,7 @@ public class LibrosDAO {
                 if (p != null) {
                     salida.writeObject(p);
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println("error al escribir libros");
             }
         }
@@ -33,21 +31,25 @@ public class LibrosDAO {
         Libros p;
         try {
             do {
-              p = (Libros) entrada.readObject();
+                p = (Libros) entrada.readObject();
                 if (p != null) {
                     lista.add(p);
                 }
-            } while (entrada != null);
-            cerrarArchivoLectura();
-        } catch (Exception e){ 
+            } while (true);
+        } catch (ClassNotFoundException e) {
             System.err.println("No se pudo crear el arreglo de Objetos" + e);
+        } catch (EOFException ex) {
+            System.out.println("Cargando libros...");
+        } catch (IOException es) {
+            System.err.println("No se pudo crear el arreglo de Objetos" + es);
         }
+        cerrarArchivoLectura();
         return lista;
     }
 
     public void abrirArchivoLectura() {
         try {
-            entrada = new ObjectInputStream(new FileInputStream("Libros.aes"));
+            entrada = new ObjectInputStream(new FileInputStream("Libros.obj"));
 
         } catch (IOException e) {
             System.err.println("Error al abrir el archivo de entrada de personas....");
@@ -56,7 +58,7 @@ public class LibrosDAO {
 
     public void abrirArchivoEscritura() {
         try {
-            salida = new ObjectOutputStream(new FileOutputStream("Libros.aes"));
+            salida = new ObjectOutputStream(new FileOutputStream("Libros.obj"));
         } catch (IOException e) {
             System.err.println("Error al abrir el archivo de Salida de Libros....");
         }

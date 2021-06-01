@@ -55,7 +55,7 @@ public class Controlador {
         int indice = 0;
         Iterator recorrerLista = listaP.iterator();
         Libros p;
-        System.out.println("Voy a buscar a la persona" + nombre + "" + autor);
+        System.out.println("Voy a buscar el libro " + nombre + " del autor " + autor);
         while (recorrerLista.hasNext()) {
             p = (Libros) recorrerLista.next();
             if (p.getNombre_Libro().equals(nombre) && p.getNombre_Autor().equals(autor)) {
@@ -77,9 +77,9 @@ public class Controlador {
                 break;
 
             case 2:
-                indice = buscarLibro(visor.solicitarEntrada("Nombre: "), visor.solicitarEntrada("Apellido: "));
+                indice = buscarLibro(visor.solicitarEntrada("Titulo del Libro: "), visor.solicitarEntrada("Nombre del Autor: "));
 
-                if (indice != 1) {
+                if (indice <= listaP.size()) {
                     modificar(indice);
                 } else {
                     visor.mostrarMensajeError("El libro seleccionado no exixte!!");
@@ -91,7 +91,7 @@ public class Controlador {
             case 3:
                 indice = buscarLibro(visor.solicitarEntrada("Nombre: "), visor.solicitarEntrada("Autor: "));
 
-                if (indice != 1) {
+                if (indice <= listaP.size()) {
                     eliminar(indice);
                 } else {
                     visor.mostrarMensajeError("El libro que buscastes no exixte!!");
@@ -101,7 +101,7 @@ public class Controlador {
                 break;
 
             case 4:
-                visor.mostrarMensaje("\tCATALOGO PERSONA");
+                visor.mostrarMensaje("\tCATALOGO de Libros");
                 visor.mostrarCatalogo(listaP);
                 break;
 

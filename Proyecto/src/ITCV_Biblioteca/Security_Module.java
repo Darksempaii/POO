@@ -40,7 +40,7 @@ public class Security_Module {
         int pass = 1;
         while (pass != NIP) {
             try {
-                pass = Integer.parseInt(JOptionPane.showInputDialog(null, "Inserte su NIP"));
+                pass = Integer.parseInt(JOptionPane.showInputDialog(null, "Inserte su NIP", "Login", JOptionPane.DEFAULT_OPTION));
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "solo se permite ingresar numeros por faver intente de nuevo", "Login", JOptionPane.ERROR_MESSAGE);
             }
