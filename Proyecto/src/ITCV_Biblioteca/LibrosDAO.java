@@ -2,9 +2,12 @@ package ITCV_Biblioteca;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class LibrosDAO {
 
+    Security_Module Secure = new Security_Module();
     ObjectOutputStream salida;
     ObjectInputStream entrada;
 
@@ -25,9 +28,21 @@ public class LibrosDAO {
     }
 
     public ArrayList<Libros> leerLibros() {
-        ArrayList<Libros> listaLibros = new ArrayList();
-
-        return listaLibros;
+        abrirArchivoLectura();
+        ArrayList<Libros> lista = new ArrayList();
+        Libros p;
+        try {
+            do {
+              p = (Libros) entrada.readObject();
+                if (p != null) {
+                    lista.add(p);
+                }
+            } while (entrada != null);
+            cerrarArchivoLectura();
+        } catch (Exception e){ 
+            System.err.println("No se pudo crear el arreglo de Objetos" + e);
+        }
+        return lista;
     }
 
     public void abrirArchivoLectura() {

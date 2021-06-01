@@ -12,10 +12,13 @@ public class Security_Module {
     private String LLAVE = "";
     public String encriptada = "";
     public String aEnccriptar = "";
-
-    public Security_Module() {
-    }
+    public String cadena_encriptada = "";
+    public String cadena_desencriptada = "";
     
+    public Security_Module() {
+
+    }
+
     //Inicio de Sesion
     public void Login() {
         //Numero de Control
@@ -31,6 +34,7 @@ public class Security_Module {
                 JOptionPane.showMessageDialog(null, "El numero de control ingresado no existe.\nPor favor prueve con otro", "Login", JOptionPane.WARNING_MESSAGE);
             }
         }
+        
         //NIP
         int NIP = 8560;
         int pass = 1;
@@ -40,7 +44,7 @@ public class Security_Module {
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "solo se permite ingresar numeros por faver intente de nuevo", "Login", JOptionPane.ERROR_MESSAGE);
             }
-            
+
             if (pass == NIP) {
                 this.LLAVE = "6855968031";
             }
@@ -53,7 +57,7 @@ public class Security_Module {
         LibrosDAO modelo = new LibrosDAO();
         Controlador controlador = new Controlador(vista, modelo);
     }
-
+    
     // Clave de encriptación / desencriptación
     public SecretKeySpec CrearCalve(String llave) {
         try {
@@ -62,6 +66,7 @@ public class Security_Module {
             cadena = md.digest(cadena);
             cadena = Arrays.copyOf(cadena, 16);
             SecretKeySpec secretKeySpec = new SecretKeySpec(cadena, "AES");
+            System.out.println(secretKeySpec);
             return secretKeySpec;
         } catch (Exception e) {
             return null;
@@ -70,7 +75,7 @@ public class Security_Module {
     }
 
     // Encriptar
-    public String Encriptar(String encriptar) {
+    public void Encriptar(String encriptar) {
         try {
             SecretKeySpec secretKeySpec = CrearCalve(LLAVE);
             Cipher cipher = Cipher.getInstance("AES");
@@ -78,16 +83,16 @@ public class Security_Module {
 
             byte[] cadena = encriptar.getBytes("UTF-8");
             byte[] encriptada = cipher.doFinal(cadena);
-            String cadena_encriptada = Base64.encode(encriptada);
-            return cadena_encriptada;
+            cadena_encriptada = Base64.encode(encriptada);
+//            return cadena_encriptada;
 
         } catch (Exception e) {
-            return "a ocurrido un error en el modulo de seguridad: Encritar";
+//            return "a ocurrido un error en el modulo de seguridad: Encritar";
         }
     }
 
     // Des-encriptación
-    public String Desencriptar(String desencriptar) {
+    public void Desencriptar(String desencriptar) {
         try {
             SecretKeySpec secretKeySpec = CrearCalve(LLAVE);
             Cipher cipher = Cipher.getInstance("AES");
@@ -96,12 +101,19 @@ public class Security_Module {
             byte[] cadena = Base64.decode(desencriptar);
             byte[] desencriptacioon = cipher.doFinal(cadena);
             String cadena_desencriptada = new String(desencriptacioon);
-            return cadena_desencriptada;
+//            return cadena_desencriptada;
 
         } catch (Exception e) {
-            return "a ocurrido un error en el modulo de seguridad: Desencritar";
+//            return "a ocurrido un error en el modulo de seguridad: Desencritar";
         }
 
     }
 
+    public String getCadena_encriptada() {
+        return cadena_encriptada;
+    }
+
+    public String getCadena_desencriptada() {
+        return cadena_desencriptada;
+    }
 }
