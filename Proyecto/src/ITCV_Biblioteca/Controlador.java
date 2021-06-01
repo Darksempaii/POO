@@ -82,7 +82,7 @@ public class Controlador {
                 if (indice != 1) {
                     modificar(indice);
                 } else {
-                    visor.mostrarMensajeError("La persona no exixte!!");
+                    visor.mostrarMensajeError("El libro seleccionado no exixte!!");
 
                 }
 
@@ -106,7 +106,7 @@ public class Controlador {
                 break;
 
             case 5:
-                modelo.escribirPersonas(listaP);
+                modelo.escribirLibros(listaP);
                 System.exit(0);
                 break;
 

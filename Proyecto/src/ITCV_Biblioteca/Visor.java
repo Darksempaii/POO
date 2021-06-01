@@ -8,7 +8,11 @@ public class Visor {
     public Visor() {
     }
 
-    public void mostrarMensaje(String mensaje) {
+    public void mostrarMensajeJO(String mensaje) {
+        JOptionPane.showMessageDialog(null, mensaje, " ", JOptionPane.DEFAULT_OPTION);
+    }
+    
+    public void mostrarMensaje(String mensaje){
         System.out.println(mensaje);
     }
 
@@ -29,12 +33,12 @@ public class Visor {
         int opcion = 0;
         while (true) {
             System.out.println("\nGestion de Libros");
-            System.out.println("1.   Agregar");
-            System.out.println("2.   Modificar");
-            System.out.println("3.   Eliminar");
-            System.out.println("4.   Mostrar catalago");
+            System.out.println("1.   Ingresar un libro al catálogo.");
+            System.out.println("2.   Modificar la información de un libro previamente registrado en el catálogo");
+            System.out.println("3.   Eliminar a un libro del catálogo.");
+            System.out.println("4.   Consultar la información de todos los libros del catálogo.");
             System.out.println("5.   salir");
-            opcion = Integer.parseInt(JOptionPane.showInputDialog(null, this, opcion));
+            opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese una opcion", opcion));
             return opcion;
         }
     }

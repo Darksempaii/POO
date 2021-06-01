@@ -1,4 +1,3 @@
-
 package ITCV_Biblioteca;
 
 import java.io.*;
@@ -9,8 +8,20 @@ public class LibrosDAO {
     ObjectOutputStream salida;
     ObjectInputStream entrada;
 
-    public void escribirPersonas(ArrayList<Libros> personas) {
-
+    public void escribirLibros(ArrayList<Libros> Libro) {
+        abrirArchivoEscritura();
+        Libros p;
+        for (int i = 0; i < Libro.size(); i++) {
+            p = (Libros) Libro.get(i);
+            try {
+                if (p != null) {
+                    salida.writeObject(p);
+                }
+            } catch (Exception e) {
+                System.out.println("error al escribir libros");
+            }
+        }
+        cerrarArchivoEscritura();
     }
 
     public ArrayList<Libros> leerLibros() {
@@ -22,7 +33,7 @@ public class LibrosDAO {
     public void abrirArchivoLectura() {
         try {
             entrada = new ObjectInputStream(new FileInputStream("Libros.aes"));
-            
+
         } catch (IOException e) {
             System.err.println("Error al abrir el archivo de entrada de personas....");
         }
@@ -30,9 +41,9 @@ public class LibrosDAO {
 
     public void abrirArchivoEscritura() {
         try {
-            salida = new ObjectOutputStream(new FileOutputStream("personas.aes"));
+            salida = new ObjectOutputStream(new FileOutputStream("Libros.aes"));
         } catch (IOException e) {
-            System.err.println("Error al abrir el archivo de Salida de personas....");
+            System.err.println("Error al abrir el archivo de Salida de Libros....");
         }
     }
 

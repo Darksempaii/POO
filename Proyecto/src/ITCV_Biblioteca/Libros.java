@@ -4,6 +4,7 @@ package ITCV_Biblioteca;
 import java.io.Serializable;
 
 public class Libros implements Serializable {
+    private static final long serialVersionUID = 1L;
     private int Codigo_Libro;
     private String Nombre_Libro;
     private String Editorial;

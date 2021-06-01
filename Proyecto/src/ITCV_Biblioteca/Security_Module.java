@@ -5,18 +5,53 @@ import java.security.MessageDigest;
 import java.util.Arrays;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-//import javax.swing.JOptionPane;
+import javax.swing.JOptionPane;
 
 public class Security_Module {
+
     private String LLAVE = "";
     public String encriptada = "";
     public String aEnccriptar = "";
 
     public Security_Module() {
-
     }
     
-    public void Login(){
+    //Inicio de Sesion
+    public void Login() {
+        //Numero de Control
+        int NUser = 659831;
+        int user = 1;
+        while (user != NUser) {
+            try {
+                user = Integer.parseInt(JOptionPane.showInputDialog(null, "Inserte su Numero de control", "Login", JOptionPane.DEFAULT_OPTION));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "solo se permite ingresar numeros por faver intente de nuevo", "Login", JOptionPane.ERROR_MESSAGE);
+            }
+            if (user != NUser) {
+                JOptionPane.showMessageDialog(null, "El numero de control ingresado no existe.\nPor favor prueve con otro", "Login", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+        //NIP
+        int NIP = 8560;
+        int pass = 1;
+        while (pass != NIP) {
+            try {
+                pass = Integer.parseInt(JOptionPane.showInputDialog(null, "Inserte su NIP"));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "solo se permite ingresar numeros por faver intente de nuevo", "Login", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            if (pass == NIP) {
+                this.LLAVE = "6855968031";
+            }
+            if (pass != NIP) {
+                JOptionPane.showMessageDialog(null, "El numero de control ingresado no existe.\nPor favor prueve con otro", "Login", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+        JOptionPane.showMessageDialog(null, "La contraseña es correcta, Acceso permitido", "Login", JOptionPane.INFORMATION_MESSAGE);
+        Visor vista = new Visor();
+        LibrosDAO modelo = new LibrosDAO();
+        Controlador controlador = new Controlador(vista, modelo);
     }
 
     // Clave de encriptación / desencriptación
